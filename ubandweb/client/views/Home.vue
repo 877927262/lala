@@ -109,7 +109,6 @@
         </div>
       </div>
       <!-- end of teacher group -->
-      <u-footer></u-footer>
     </div>
 
   </div>
@@ -119,11 +118,9 @@
 <script>
   //this is page's header
   import UHeader from '../components/u-header.vue'
-  import UFooter from '../components/u-footer.vue'
   export default {
     components: {
-      UHeader,
-      UFooter
+      UHeader
     }
   }
 

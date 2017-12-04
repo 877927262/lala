@@ -3,8 +3,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Home from '../views/home'
-import Aboutus from '../views/intro/aboutus'
-import Redirection from '../components/redirection'
 //将学习页面引入
 import StudyPage from '../views/studyPages/studyPage'
 //将课程页面引入
@@ -27,14 +25,6 @@ export default new Router({
     {
       path: '/',
       component: Home
-    },
-    {
-      path: '/aboutus',
-      component: Aboutus
-    },
-    {
-      path: '/redirection',
-      component: Redirection
     },
     {
       //学习页面
