@@ -1,0 +1,34 @@
+@import "../../variables";
+.center-bar {
+  width:90%;
+  //padding的作用是为了让盒阴影出来效果
+  color: $u-font-color;
+  h1 {
+    font-size: 26px;
+    color: $u-font-color;
+  }
+  //router-link的样式
+  a{
+    color: $u-font-color;
+  }
+  .task-box{
+    height: 180px;
+    background: #ffffff;
+    box-shadow: 2px 2px 5px 1px #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    position: relative;
+    .task-box-bottom{
+      width: 85%;
+      height: 25px;
+      position: absolute;
+      bottom: 20px;
+      span{
+        display: inline-block;
+        &:last-child{
+          color: #9B9B9B;
+        }
+      }
+    }
+  }
+}

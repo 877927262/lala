@@ -1,0 +1,35 @@
+@import "../../variables";
+
+header{
+  height: 80px;
+  // background: skyblue;
+  overflow: hidden;
+  .logo{
+    margin-left: 35px;
+    margin-top: 23px;
+    float:left;
+    img{
+      width: 160px;
+      height: 30px;
+    }
+  }
+  .nav{
+    float: left;
+    margin-left: 100px;
+    font-family:$u-font-family;
+    font-size: 18px;
+    margin-top: 17px;
+    font-weight: bold;
+    a{
+      color: #4a4a4a;
+    }
+  }
+  .userLogo{
+    float: right;
+    img{
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+}

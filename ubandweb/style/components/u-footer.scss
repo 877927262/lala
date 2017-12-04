@@ -1,0 +1,31 @@
+@import "../variables";
+
+.u-footer{
+    padding-bottom: 50px;
+    padding-top: 20px;
+    .advice-content{
+        .footer-logo{
+            width: 275px;
+        }
+        .logo-divide{
+            width:275px;
+            padding-top: 15px;
+        }
+        .text-divide{
+            width:280px;
+            font-size:17px;
+        }
+
+        .qr-img{
+            width: 200px;
+        }
+    }
+    .link-content{
+        .footer-item{
+            cursor: pointer;
+            &:hover{
+                color:$u-black;
+            }
+        }
+    }
+}

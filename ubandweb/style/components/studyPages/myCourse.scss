@@ -1,0 +1,34 @@
+@import "../../variables";
+
+.myCourse{
+  padding-top: 35px;
+  font-family: $u-content-width;
+  overflow: hidden;
+  color: #4A4A4A;
+  display: flex;
+  .left{
+    width: 220px;
+    //float: left;
+    .left-nav{
+      width:220px ;
+      li{
+        padding-left: 40px;
+        a{
+          color: #9B9B9B;
+          font-size: 14px;
+        }
+        &.active{
+          a{
+            color: #4A4A4A;
+          }
+        }
+      }
+    }
+  }
+  .right{
+    width: 80%;
+    //float: left;
+    border-left: 1px solid #cfcfcf;
+    padding-bottom: 100px;
+  }
+}

@@ -1,0 +1,45 @@
+@import "../../variables";
+
+.center-bar{
+  width: 920px;
+  padding: 10px;
+  h1{
+    font-size: 26px;
+  }
+  .course-info{
+    background: #ffffff;
+    box-shadow: 2px 2px 5px 1px #ccc;
+    overflow: hidden;
+    height: 920px;
+    .class-info{
+      padding-left: 60px;
+      h4{
+        font-size: 22px;
+      }
+      p{
+        color: #9B9B9B;
+      }
+    }
+    .wechat{
+      p{
+        margin-top: 26px;
+      }
+      img{
+        width: 550px;
+        height: 200px;
+        display: block;
+        margin: 0 auto;
+      }
+      .buttons{
+        button{
+          background: #ff3b60;
+          border-color: #ff3b60;
+          width: 300px;
+          height: 60px;
+          margin:0 auto 30px;
+          display: block;
+        }
+      }
+    }
+  }
+}

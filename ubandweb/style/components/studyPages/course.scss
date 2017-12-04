@@ -1,0 +1,77 @@
+@import "../../variables";
+.center-bar{
+  max-width:$u-content-width;
+  overflow: hidden;
+  h2:first-child{
+    margin: 36px 0 30px;;
+    font-size: 26px;
+    color: #4a4a4a;
+  }
+  .nav{
+    &.border-bottom{
+      border-bottom: 1px solid #cfcfcf;
+    }
+    .active{
+      border-bottom: 3px solid #FF4060;
+    }
+    a{
+      color: #4A4A4A;
+      font-weight: bold;
+    }
+  }
+  .b-container{
+    .course-box{
+      border-radius: 7px;
+      overflow: hidden;
+      box-shadow: 2px 3px 5px #ccc;
+      .course-image{
+        img{
+          width: 100%;
+        }
+      }
+      .course-info{
+        height: 33px;
+        font-size: 14px;
+        line-height: 33px;
+        background: #ffffff;
+        overflow: hidden;
+        span{
+          font-family: $u-content-width;
+          display: inline-block;
+          float: left;
+          color: #58666E;
+          &:first-child{
+            margin-left: 14px;
+          }
+          &:last-child{
+            float: right;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+  h2:nth-of-type(2){
+    color:#68666e;
+    margin-top: 55px;
+    font-size: 26px;
+  }
+}
+footer{
+  background: #ffffff;
+  height: 135px;
+  overflow: hidden;
+  font-size: 14px;
+  color: #8A8A8A;
+  .nav{
+    width:840px;
+    margin:44px auto 0;
+    a{
+      color: #8A8A8A;
+    }
+  }
+  p{
+    width: 135px;
+    margin: 10px auto 0;
+  }
+}
