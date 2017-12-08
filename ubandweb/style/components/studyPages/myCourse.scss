@@ -9,8 +9,16 @@
   .left{
     width: 220px;
     //float: left;
+    h5{
+      margin-left: 40px;
+    }
     .left-nav{
       width:220px ;
+      .choose{
+        a{
+          font-size: 20px;
+        }
+      }
       li{
         padding-left: 40px;
         a{

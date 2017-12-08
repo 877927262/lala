@@ -4,7 +4,8 @@
 <template lang="html">
   <div class="myCourse clear">
     <div class="left">
-      <b-nav vertical class="left-nav">
+      <h5>请选择大夫</h5>
+      <b-nav vertical class="left-nav" >
         <b-nav-item v-for="(item,index) in nav" :key="index" @click="change(index)" :class={active:isActive(index)}><router-link :to="item.router">{{item.title}}</router-link></b-nav-item>
       </b-nav>
     </div>
@@ -19,19 +20,19 @@ export default {
   data(){
     return{
       nav:[{
-            title:'课程主页',
+            title:'张大夫',
             router:'homepage'
           },
           {
-            title:'学习任务',
+            title:'李大夫',
             router:'studyTask'
           },
           {
-            title:'作业统计',
+            title:'王大夫',
             router:'homepage'
           },
           {
-            title:'点评和评分',
+            title:'赵大夫',
             router:'homepage'
           }],
 

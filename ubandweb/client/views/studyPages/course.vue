@@ -2,13 +2,12 @@
 <template lang="html">
   <div>
     <div class="center-bar block-center">
-      <h2>我的课程</h2>
+      <h2>请选择您要挂的号</h2>
       <b-nav class="border-bottom">
-        <b-nav-item :class="{active:active}">进行中</b-nav-item>
-        <b-nav-item :class="{active:!active}">已结束</b-nav-item>
+        <b-nav-item :class="{active:active}">按科室挂号</b-nav-item>
+        <b-nav-item :class="{active:!active}">按疾病挂号</b-nav-item>
       </b-nav>
       <b-container fluid class="b-container">
-        <!-- 一行排列三门课程 -->
         <b-row>
 
           <b-col  md="6"	lg="4"	xl="4" v-for="(item,index) in test" :key="item.id">
@@ -26,12 +25,9 @@
 
         </b-row>
       </b-container>
-      <h2>你可能感兴趣的课程</h2>
-
-      <div style="height:400px;">
-        <!-- 占空间专用 -->
+      <div style="height:50px;">
+        <!--占空间专用-->
       </div>
-
 
 
     </div>
@@ -64,32 +60,32 @@ export default {
       active:true,
       test:[{
         "id":"1",
-        "name":"早起不熬夜班",
+        "name":"内科",
         "banner":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512111646555&di=34daf8b3e3d8889f4c3b594d4819f4c8&imgtype=0&src=http%3A%2F%2Fwww.th7.cn%2Fd%2Ffile%2Fp%2F2016%2F08%2F01%2Fb2abda9a1e99731a8d9bf34399af1003.jpg",
         "startDate": "66776"
       },{
         "id":"2",
-        "name":"语文班",
+        "name":"外科",
         "banner":require("../../../static/studyPages/course-img01.png"),
         "startDate":"2099/11/16"
       },{
         "id":"3",
-        "name":"奥数班",
+        "name":"儿科",
         "banner":require("../../../static/studyPages/course-img01.png"),
         "startDate":"2099/11/16"
       },{
         "id":"4",
-        "name":"钢琴班",
+        "name":"眼科",
         "banner":require("../../../static/studyPages/course-img01.png"),
         "startDate":"2099/11/16"
       },{
         "id":"5",
-        "name":"摔跤班",
+        "name":"口腔科",
         "banner":require("../../../static/studyPages/course-img01.png"),
         "startDate":"2099/11/16"
       },{
         "id":"6",
-        "name":"吃饭班",
+        "name":"耳鼻喉科",
         "banner":require("../../../static/studyPages/course-img01.png"),
         "startDate":"2099/11/16"
       }]

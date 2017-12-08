@@ -1,30 +1,110 @@
 <!--课程主页组件-->
 <template lang="html">
   <div class="center-bar block-center">
-    <h1>课程主页</h1>
+    <h1>科室排班表</h1>
     <div class="course-info m-t-lg">
-      <div class="class-info p-t-xl">
-        <h4>班级信息</h4>
-        <p class="text-s">2017-09-09 12:00:00 提交</p>
-      </div>
-      <div class="wechat m-t-lg">
-          <h4 class="text-md text-c">微信群</h4>
-          <p class="text-c">暗号是“加群-编程班55”</p>
-          <img src="../../../static/studyPages/wechat.png" alt="wechat">
-          <h4 class="text-md text-c m-t-xl">班级攻略</h4>
-          <div class="buttons m-t-lg">
-            <b-button class="pointer">如何学习</b-button>
-            <b-button class="pointer">如何打卡</b-button>
-            <b-button class="pointer">评分和奖励</b-button>
-          </div>
-      </div>
+      <table>
+        <tr class="date">
+          <td></td>
+          <!-- {{works}} -->
+          <td v-for="item in works">{{item.name}}</td>
+        </tr>
+        <tr>
+          <td>上午</td>
+          <td v-b-modal.punchCard>约满</td>
+          <td>约满</td>
+          <td>约满</td>
+          <td>约满</td>
+          <td>约满</td>
+          <td>约满</td>
+          <td>约满</td>
+        </tr>
+        <tr>
+          <td>下午</td>
+          <td>约满</td>
+          <td>约满</td>
+          <td>约满</td>
+          <td>约满</td>
+          <td>约满</td>
+          <td>约满</td>
+          <td>约满</td>
+        </tr>
+      </table>
+        {{works}}
     </div>
+    <b-modal id="punchCard" ref="modal" @ok="handleOk" @shown="clearName" hide-header hide-footer size="lg">
+      <form @submit.stop.prevent="handleSubmit">
+        <div class="modal-box block-center clear p-b-xl">
+          <!--这个是600px的容器-->
+          <div class="modal-center-box block-center ">
+            <!--这个是520px的容器-->
+            <div class="head clear text-md m-t-xxl">
+              <h5 class="pull-left  font-normal">打卡</h5><span class="pull-right pointer" @click="close">X</span>
+            </div>
+            <div class="puch-card-info m-t-lg ">
+                <div class="info-box clear p-b-md">
+                  <span class="pull-left text-s">班级</span><input type="text" class="pull-left">
+                </div>
+                <div class="info-box clear p-b-md">
+                  <span class="pull-left text-s">任务名</span><input type="text" class="pull-left">
+                </div>
+                <div class="info-box clear p-b-md">
+                  <span class="pull-left text-s">日期</span><input type="text" class="pull-left">
+                </div>
+            </div>
+
+            <div class="upload-files clear">
+             <a href="a" class="pull-right m-l-lg text-s font-bold">上传文件</a><a href="a" class="pull-right text-s font-bold ">外链提交</a>
+            </div>
+            <div class="file-container">
+              <div class="file-box m-b">
+                <span class="m-l-md">这是我的打卡文件.png</span><a href="a" class="pull-right text-s font-bold m-r ">移除</a>
+              </div>
+              <div class="file-box m-b">
+                <span class="m-l-md">这是我的打卡文件.png</span><a href="a" class="pull-right text-s font-bold m-r ">移除</a>
+              </div>
+            </div>
+            <b-btn class="pull-right m-l-md submit-button m-r">提交</b-btn><b-btn class="pull-right concel-button">取消</b-btn>
+          </div>
+        </div>
+      </form>
+    </b-modal>
   </div>
 </template>
 
 <script>
 export default {
+  computed:{
+    doctors(){
+      return this.$store.state.studyPages.doctors;
+    }
+  },
+  methods: {
+    clearName () {
+      this.name = ''
+    },
+    handleOk (evt) {
+      // Prevent modal from closing
+      evt.preventDefault()
+      if (!this.name) {
+        alert('Please enter your name')
+      } else {
+        this.handleSubmit()
+      }
+    },
+    handleSubmit () {
+      this.names.push(this.name)
+      this.clearName()
+      this.$refs.modal.hide()
+    },
+    close(){
+      this.$refs.modal.hide()
 
+    },
+    goBack(){
+      this.$router.go(-1);
+    }
+  }
 }
 </script>
 

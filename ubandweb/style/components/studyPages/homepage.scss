@@ -1,7 +1,7 @@
 @import "../../variables";
 
 .center-bar{
-  width: 920px;
+  width: 800px;
   padding: 10px;
   h1{
     font-size: 26px;
@@ -10,35 +10,72 @@
     background: #ffffff;
     box-shadow: 2px 2px 5px 1px #ccc;
     overflow: hidden;
-    height: 920px;
-    .class-info{
-      padding-left: 60px;
-      h4{
-        font-size: 22px;
-      }
-      p{
-        color: #9B9B9B;
+    height:450px;
+    table{
+
+      tr{
+        td{
+          border: 1px solid #ccc;
+          width: 100px;
+          height: 100px;
+          text-align: center;
+        }
+        &.date{
+          td{
+            height: 50px;
+          }
+        }
       }
     }
-    .wechat{
-      p{
-        margin-top: 26px;
-      }
-      img{
-        width: 550px;
-        height: 200px;
-        display: block;
-        margin: 0 auto;
-      }
-      .buttons{
-        button{
-          background: #ff3b60;
-          border-color: #ff3b60;
-          width: 300px;
-          height: 60px;
-          margin:0 auto 30px;
-          display: block;
+  }
+  .modal-box{
+    //width: 700px;
+    .modal-center-box{
+      width: 80%;
+      //这里改成520px
+      .head{
+        h5,span{
+          color:#58666E ;
         }
+      }
+      .puch-card-info{
+        border-bottom: 1px solid #efefef;
+        .info-box{
+          span{
+            width: 100px;
+            display: block;
+            line-height:30px;
+          }
+          input{
+            width:350px;
+            height: 30px;
+            background: #ecf1f2;
+            border:none;
+            border-radius: 5px;
+          }
+        }
+      }
+      .upload-files{
+        a{
+          line-height: 55px;
+        }
+      }
+      .file-container{
+        min-height: 280px;
+        .file-box{
+          background: #f8f9fb;
+          height: 50px;
+          line-height: 50px;
+        }
+      }
+      .submit-button,.concel-button{
+        width: 80px;
+        height: 35px;
+        background: #ff4060;
+        border:none;
+      }
+      .concel-button{
+        background: #cfcfcf;
       }
     }
   }
