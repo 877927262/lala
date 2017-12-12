@@ -7,27 +7,15 @@
         <tr class="date">
           <td></td>
           <!-- {{works}} -->
-          <td v-for="item in works">{{item.name}}</td>
+          <td v-for="item in theDoctor">{{item.date}}</td>
         </tr>
         <tr>
           <td>上午</td>
-          <td v-b-modal.punchCard>约满</td>
-          <td>约满</td>
-          <td>约满</td>
-          <td>约满</td>
-          <td>约满</td>
-          <td>约满</td>
-          <td>约满</td>
+          <td v-b-modal.punchCard v-for="item in theDoctor" class="pointer">{{item.am}}</td>
         </tr>
         <tr>
           <td>下午</td>
-          <td>约满</td>
-          <td>约满</td>
-          <td>约满</td>
-          <td>约满</td>
-          <td>约满</td>
-          <td>约满</td>
-          <td>约满</td>
+            <td v-b-modal.punchCard v-for="item in theDoctor" class="pointer">{{item.pm}}</td>
         </tr>
       </table>
         {{works}}
@@ -77,6 +65,10 @@ export default {
   computed:{
     doctors(){
       return this.$store.state.studyPages.doctors;
+    },
+    theDoctor(){
+      return this.$store.state.studyPages.theDoctor;
+
     }
   },
   methods: {

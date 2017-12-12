@@ -1,0 +1,34 @@
+@import "../../variables";
+
+.b-container{
+  .course-box{
+    border-radius: 7px;
+    overflow: hidden;
+    box-shadow: 2px 3px 5px #ccc;
+    .course-image{
+      img{
+        width: 100%;
+      }
+    }
+    .course-info{
+      height: 33px;
+      font-size: 14px;
+      line-height: 33px;
+      background: #ffffff;
+      overflow: hidden;
+      span{
+        font-family: $u-content-width;
+        display: inline-block;
+        float: left;
+        color: #58666E;
+        &:first-child{
+          margin-left: 14px;
+        }
+        &:last-child{
+          float: right;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

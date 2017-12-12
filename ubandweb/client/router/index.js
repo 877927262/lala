@@ -15,7 +15,10 @@ import Homepage from '../views/studyPages/homepage'
 import StudyTask from '../views/studyPages/studyTask'
 //将任务详情页面引入
 import TaskDetails from '../views/studyPages/taskDetails'
-
+//将进行中引入进来
+import underway from '../views/studyPages/underway'
+//将已结束引进来
+import over from '../views/studyPages/over'
 
 Vue.use(Router);
 
@@ -33,7 +36,15 @@ export default new Router({
       component: StudyPage,
       children:[{
         path: 'course',
-        component: Course
+        component: Course,
+        redirect:'course/underway',
+        children:[{
+          path:'underway',
+          component:underway
+        },{
+            path:'over',
+            component:over
+        }]
       },{
         path: 'myCourse',
         redirect:'myCourse/homepage',
@@ -49,6 +60,5 @@ export default new Router({
           component:TaskDetails
         }]
       }]
-    }
-  ]
+  }]
 })

@@ -4,31 +4,15 @@
     <div class="center-bar block-center">
       <h2>请选择您要挂的号</h2>
       <b-nav class="border-bottom">
-        <b-nav-item :class="{active:active}">按科室挂号</b-nav-item>
-        <b-nav-item :class="{active:!active}">按疾病挂号</b-nav-item>
+        <b-nav-item to="underway" >按科室挂号</b-nav-item>
+        <b-nav-item to="over" >按疾病挂号</b-nav-item>
       </b-nav>
-      <b-container fluid class="b-container">
-        <b-row>
 
-          <b-col  md="6"	lg="4"	xl="4" v-for="(item,index) in test" :key="item.id">
-              <div class="course-box pointer m-t-lg">
-                <router-link to="myCourse">
-                  <div class="course-image">
-                    <img :src="item.banner" alt="课程图片">
-                  </div>
-                  <div class="course-info">
-                    <span>{{item.name}}</span><span>{{item.startDate}}</span>
-                  </div>
-                </router-link>
-              </div>
-          </b-col>
+      <router-view></router-view>
 
-        </b-row>
-      </b-container>
       <div style="height:50px;">
         <!--占空间专用-->
       </div>
-
 
     </div>
     <footer>
