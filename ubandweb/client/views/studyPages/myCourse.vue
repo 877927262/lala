@@ -6,7 +6,7 @@
     <div class="left">
       <h5>请选择大夫</h5>
       <b-nav vertical class="left-nav" >
-        <b-nav-item v-for="(item,index) in nav" :key="index" @click="change(index)" :class={active:isActive(index)}><router-link :to="item.router">{{item.title}}</router-link></b-nav-item>
+        <b-nav-item v-for="(item,index) in DepartmentDoctorList" :key="index" @click="change(index)" :class={active:isActive(index)}>{{item.name}}</b-nav-item>
       </b-nav>
     </div>
     <div class="right">
@@ -37,6 +37,12 @@ export default {
           }],
 
       currentIndex:0
+    }
+  },
+  computed:{
+    //按科室查找大夫
+    DepartmentDoctorList(){
+      return this.$store.state.studyPages.DepartmentDoctorList;
     }
   },
   methods:{

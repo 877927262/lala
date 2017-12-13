@@ -3,7 +3,7 @@
     <!-- 一行排列三门课程 -->
     <b-row>
 
-      <b-col  md="6"	lg="4"	xl="4" v-for="(item,index) in hospitalDepartmentList" :key="item.id">
+      <b-col  md="6"	lg="4"	xl="4" v-for="(item,index) in illnessList" :key="item.id">
           <div class="course-box pointer m-t-lg" @click="linkTo(item.id)">
             <!--<router-link :to="/studyPage/myCourse">-->
               <div class="course-image">
@@ -29,8 +29,8 @@ export default {
     }
   },
   computed:{
-    hospitalDepartmentList(){
-      return this.$store.state.studyPages.hospitalDepartmentList;
+    illnessList(){
+      return this.$store.state.studyPages.illnessList;
     }
 
   },
@@ -42,6 +42,7 @@ export default {
     //路由跳转
     linkTo(clazzId){
       this.$router.push("/studyPage/myCourse/"+clazzId)
+//      this.$router.push("/studyPage/myCourse/")
     }
   },
   created(){

@@ -18,8 +18,8 @@
             <td v-b-modal.punchCard v-for="item in theDoctor" class="pointer">{{item.pm}}</td>
         </tr>
       </table>
-        {{works}}
     </div>
+
     <b-modal id="punchCard" ref="modal" @ok="handleOk" @shown="clearName" hide-header hide-footer size="lg">
       <form @submit.stop.prevent="handleSubmit">
         <div class="modal-box block-center clear p-b-xl">
@@ -27,32 +27,25 @@
           <div class="modal-center-box block-center ">
             <!--这个是520px的容器-->
             <div class="head clear text-md m-t-xxl">
-              <h5 class="pull-left  font-normal">打卡</h5><span class="pull-right pointer" @click="close">X</span>
+              <h5 class="pull-left  font-normal">请输入您的个人信息</h5><span class="pull-right pointer" @click="close">X</span>
             </div>
-            <div class="puch-card-info m-t-lg ">
+            <div class="puch-card-info m-t-lg m-b-lg ">
                 <div class="info-box clear p-b-md">
-                  <span class="pull-left text-s">班级</span><input type="text" class="pull-left">
+                  <span class="pull-left text-s">姓名</span><input type="text" class="pull-left">
                 </div>
                 <div class="info-box clear p-b-md">
-                  <span class="pull-left text-s">任务名</span><input type="text" class="pull-left">
+                  <span class="pull-left text-s">身份证号</span><input type="text" class="pull-left">
                 </div>
                 <div class="info-box clear p-b-md">
-                  <span class="pull-left text-s">日期</span><input type="text" class="pull-left">
+                  <span class="pull-left text-s">手机号</span><input type="text" class="pull-left">
+                </div>
+                <div class="info-box clear p-b-md">
+                  <span class="pull-left text-s">验证码</span><input type="text" class="pull-left">
                 </div>
             </div>
 
-            <div class="upload-files clear">
-             <a href="a" class="pull-right m-l-lg text-s font-bold">上传文件</a><a href="a" class="pull-right text-s font-bold ">外链提交</a>
-            </div>
-            <div class="file-container">
-              <div class="file-box m-b">
-                <span class="m-l-md">这是我的打卡文件.png</span><a href="a" class="pull-right text-s font-bold m-r ">移除</a>
-              </div>
-              <div class="file-box m-b">
-                <span class="m-l-md">这是我的打卡文件.png</span><a href="a" class="pull-right text-s font-bold m-r ">移除</a>
-              </div>
-            </div>
-            <b-btn class="pull-right m-l-md submit-button m-r">提交</b-btn><b-btn class="pull-right concel-button">取消</b-btn>
+
+            <b-btn class="pull-left concel-button">取消</b-btn><b-btn class="pull-left m-l-md submit-button m-r">提交</b-btn>
           </div>
         </div>
       </form>

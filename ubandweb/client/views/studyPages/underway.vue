@@ -42,6 +42,7 @@ export default {
     //路由跳转
     linkTo(clazzId){
       this.$router.push("/studyPage/myCourse/"+clazzId)
+//      this.$router.push("/studyPage/myCourse/")
     }
   },
   created(){

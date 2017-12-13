@@ -46,8 +46,8 @@ export default new Router({
             component:over
         }]
       },{
-        path: 'myCourse',
-        redirect:'myCourse/homepage',
+        path: 'myCourse/:id',
+        redirect:'myCourse/:id/homepage',
         component: MyCourse,
         children:[{
           path:'homepage',
