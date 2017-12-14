@@ -1,11 +1,9 @@
-/**
- * Created by johnbryant on 2017/3/13.
- */
+
 import 'whatwg-fetch';
 
 export default async(type = 'GET', url = '', token = '', data = {}, method = 'fetch', returnRes = false) => {
   type = type.toUpperCase();
-  var baseUrl = '/web';
+  var baseUrl = 'http://127.0.0.1:3000/appointment';
   url = baseUrl + url;
 
   if (type == 'GET') {

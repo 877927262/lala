@@ -46,11 +46,8 @@ export default {
     }
   },
   created(){
-//    var token=this.$store.state.studyPages.token;
-//    this.$store.dispatch('getCourseList',{
-//      status: 'PROCESSING',
-//      token: token
-//    })
+    this.$store.dispatch('getAllDepartment');
+    console.log(this.$store.state.studyPages.hospitalDepartmentList)
   }
 }
 </script>
