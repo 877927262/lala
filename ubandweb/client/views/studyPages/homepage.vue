@@ -62,6 +62,12 @@ export default {
     theDoctor(){
       return this.$store.state.studyPages.theDoctor;
 
+    },
+    departmentId(){
+      return this.$route.params.departmentId;
+    },
+    illnessId(){
+      return this.$route.params.illnessId;
     }
   },
   methods: {
@@ -88,6 +94,20 @@ export default {
     },
     goBack(){
       this.$router.go(-1);
+    }
+  },
+
+  created(){
+    //动态获取当前的大夫列表
+    if(this.departmentId){
+      //如果是按照科室查询的
+      this.$store.dispatch('getCurrentDepartmentDoctorList',{departmentId:this.departmentId})
+    }else if(this.illnessId){
+      //如果是按照病症查询的
+      this.$store.dispatch('getCurrentIllnessDoctorList',{illnessId:this.illnessId})
+
+    }else{
+      console.log('出错了')
     }
   }
 }

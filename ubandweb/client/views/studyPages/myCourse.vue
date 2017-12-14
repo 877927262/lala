@@ -19,23 +19,6 @@
 export default {
   data(){
     return{
-      nav:[{
-            title:'张大夫',
-            router:'homepage'
-          },
-          {
-            title:'李大夫',
-            router:'studyTask'
-          },
-          {
-            title:'王大夫',
-            router:'homepage'
-          },
-          {
-            title:'赵大夫',
-            router:'homepage'
-          }],
-
       currentIndex:0
     }
   },

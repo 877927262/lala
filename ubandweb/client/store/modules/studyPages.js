@@ -112,19 +112,16 @@ const state={
     // banner:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512111646555&di=34daf8b3e3d8889f4c3b594d4819f4c8&imgtype=0&src=http%3A%2F%2Fwww.th7.cn%2Fd%2Ffile%2Fp%2F2016%2F08%2F01%2Fb2abda9a1e99731a8d9bf34399af1003.jpg'
     // }
   ],
-  //当前科室大夫
-  DepartmentDoctorList:[{
-    id:'007',
-    name:'张三疯'
-  },{
-    id:'026',
-    name:'李二狗'
-  },{
-    id:'038',
-    name:'李大狗'
-  }],
+  //当前大夫
+  DepartmentDoctorList:[
+  //   {
+  //   id:'007',
+  //   name:'张三疯'
+  // }
+  ],
   //当前病症大夫
-  illnessDoctorList:[{
+  illnessDoctorList:[
+    {
     id:'01',
     name:'大柱子'
   },{
@@ -138,6 +135,20 @@ const getters={
 const mutations={
   setAllDepartment(state,{hospitalDepartmentList}){
     state.hospitalDepartmentList=hospitalDepartmentList;
+  },
+
+  setAllIllness(state,{illnessList}){
+    state.illnessList=illnessList;
+  },
+
+  setCurrentDepartmentDoctorList(state,{DepartmentDoctorList}){
+    state.DepartmentDoctorList=DepartmentDoctorList;
+
+  },
+
+  setCurrentIllnessDoctorList(state,{illnessDoctorList}){
+    state.illnessDoctorList=illnessDoctorList;
+
   }
 };
 const actions={
@@ -152,7 +163,45 @@ const actions={
     }).catch(function (err) {
       throw err;
     })
+  },
+  getAllIllness({commit}){
+    fetch('http://127.0.0.1:3000/appointment/getAllIllness').then(function(response) {
+      response.json().then(function(res){
+        commit('setAllIllness',{illnessList:res})
+
+      }).catch(function (err) {
+        throw err;
+      })
+    }).catch(function (err) {
+      throw err;
+    })
+  },
+  getCurrentDepartmentDoctorList({commit},params){
+    fetch('http://127.0.0.1:3000/appointment/getCurrentDepartmentDoctorList?&departmentId='+params.departmentId).then(function(response) {
+      response.json().then(function(res){
+        commit('setCurrentDepartmentDoctorList',{DepartmentDoctorList:res})
+
+      }).catch(function (err) {
+        throw err;
+      })
+    }).catch(function (err) {
+      throw err;
+    })
+  },
+  getCurrentIllnessDoctorList({commit},params){
+    fetch('http://127.0.0.1:3000/appointment/getCurrentIllnessDoctorList?&illnessId='+params.illnessId).then(function(response) {
+      response.json().then(function(res){
+        commit('setCurrentDepartmentDoctorList',{DepartmentDoctorList:res})
+
+      }).catch(function (err) {
+        throw err;
+      })
+    }).catch(function (err) {
+      throw err;
+    })
   }
+
+
 }
 
 export default {

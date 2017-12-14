@@ -40,14 +40,13 @@ export default {
       // return moment(date).format('YYYY/MM/DD')
     },
     //路由跳转
-    linkTo(clazzId){
-      this.$router.push("/studyPage/myCourse/"+clazzId)
+    linkTo(departmentId){
+      this.$router.push("/studyPage/department/"+departmentId)
 //      this.$router.push("/studyPage/myCourse/")
     }
   },
   created(){
     this.$store.dispatch('getAllDepartment');
-    console.log(this.$store.state.studyPages.hospitalDepartmentList)
   }
 }
 </script>

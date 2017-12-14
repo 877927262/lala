@@ -40,17 +40,12 @@ export default {
       // return moment(date).format('YYYY/MM/DD')
     },
     //路由跳转
-    linkTo(clazzId){
-      this.$router.push("/studyPage/myCourse/"+clazzId)
-//      this.$router.push("/studyPage/myCourse/")
+    linkTo(illnessId){
+      this.$router.push("/studyPage/illness/"+illnessId)
     }
   },
   created(){
-//    var token=this.$store.state.studyPages.token;
-//    this.$store.dispatch('getCourseList',{
-//      status: 'PROCESSING',
-//      token: token
-//    })
+    this.$store.dispatch('getAllIllness');
   }
 }
 </script>

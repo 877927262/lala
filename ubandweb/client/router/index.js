@@ -46,18 +46,20 @@ export default new Router({
             component:over
         }]
       },{
-        path: 'myCourse/:id',
-        redirect:'myCourse/:id/homepage',
+        path: 'department/:departmentId',
+        redirect:'department/:departmentId/homepage',
         component: MyCourse,
         children:[{
           path:'homepage',
           component:Homepage
-        },{
-          path:'studyTask',
-          component:StudyTask
-        },{
-          path:'taskDetails',
-          component:TaskDetails
+        }]
+      },{
+        path: 'illness/:illnessId',
+        redirect:'illness/:illnessId/homepage',
+        component: MyCourse,
+        children:[{
+          path:'homepage',
+          component:Homepage
         }]
       }]
   }]
