@@ -40,7 +40,11 @@ export default {
       //控制激活状态
       this.currentIndex = index;
 
-      //获取当前科室或者当前病症的大夫列表
+      //设置要预约的大夫的id
+      this.$store.commit('setAppointmentDoctorId',{appointmentDoctorId:item.id});
+
+
+      //theDoctor当前大夫的工作信息
       if(item.id){
         this.$store.dispatch('getCurrentDoctorWorkList',{doctorId:item.id});
       }

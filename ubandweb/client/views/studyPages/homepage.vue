@@ -11,11 +11,11 @@
         </tr>
         <tr>
           <td>上午</td>
-          <td v-b-modal.punchCard v-for="item in theDoctor" class="pointer">{{item.am}}</td>
+          <td v-b-modal.punchCard v-for="item in theDoctor" class="pointer" @click="getAppointmentAmInfo(item)">{{item.am}}</td>
         </tr>
         <tr>
           <td>下午</td>
-            <td v-b-modal.punchCard v-for="item in theDoctor" class="pointer">{{item.pm}}</td>
+            <td v-b-modal.punchCard v-for="item in theDoctor" class="pointer" @click="getAppointmentPmInfo(item)">{{item.pm}}</td>
         </tr>
       </table>
 
@@ -84,6 +84,23 @@ export default {
     }
   },
   methods: {
+    //设置日期和上午
+    getAppointmentAmInfo(item){
+      let date=item.date;
+      let time='上午';
+      this.$store.commit('setAppointmentDate',{appointmentDate:date});
+      this.$store.commit('setAppointmentTime',{appointmentTime:time});
+
+    },
+    //设置日期和上午
+    getAppointmentPmInfo(item){
+      let date=item.date;
+      let time='下午';
+      this.$store.commit('setAppointmentDate',{appointmentDate:date});
+      this.$store.commit('setAppointmentTime',{appointmentTime:time});
+
+    },
+
     clearName () {
       this.name = '';
       this.card_id=null;
@@ -108,24 +125,22 @@ export default {
     },
     submit(){
       let thisThis=this;
+      //新增一个用户
       this.$store.dispatch('addUser',{
         name:this.name,
         card_id:this.card_id,
         age:this.age,
         gender:this.gender
       });
-
+      //新增一个用户之后立马查询它的id
       setTimeout(function () {
         thisThis.$store.dispatch('selectUserId',{
           card_id:thisThis.card_id
         })
-      },1000);
+      },500);
       //这里遗留了一个问题，怎么用dispatch的then()
 
-
-
-
-//      thisThis.close();
+      thisThis.close();
 
     }
 

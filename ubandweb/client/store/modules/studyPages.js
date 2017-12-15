@@ -4,71 +4,20 @@ import 'whatwg-fetch';
 const state={
   //控制是否显示排班表
   isShow:false,
+  //预约日期
+  appointmentDate:'',
 
-  //大夫的所有信息
-  doctors:[{
-    name:'张大夫',
-    works:[{
-      date:'星期一',
-      am:'11人',
-      pm:'111人'
-    },{
-      date:'星期二',
-      am:'22人',
-      pm:'222人'
-    },{
-      date:'星期三',
-      am:'3人',
-      pm:'333人'
-    },{
-      date:'星期四',
-      am:'4人',
-      pm:'444人'
-    },{
-      date:'星期五',
-      am:'5人',
-      pm:'555人'
-    },{
-      date:'星期六',
-      am:'6人',
-      pm:'666人'
-    },{
-      date:'星期日',
-      am:'7人',
-      pm:'777人'
-    }]
-  },{
-    name:'李大夫',
-    works:[{
-      date:'星期一',
-      am:'11人',
-      pm:'111人'
-    },{
-      date:'星期二',
-      am:'22人',
-      pm:'222人'
-    },{
-      date:'星期三',
-      am:'3人',
-      pm:'333人'
-    },{
-      date:'星期四',
-      am:'4人',
-      pm:'444人'
-    },{
-      date:'星期五',
-      am:'5人',
-      pm:'555人'
-    },{
-      date:'星期六',
-      am:'6人',
-      pm:'666人'
-    },{
-      date:'星期日',
-      am:'7人',
-      pm:'777人'
-    }]
-  }],
+  //预约上午还是下午
+  appointmentTime:'',
+
+  //预约大夫
+  appointmentDoctorId:null,
+
+  //要预约的病人
+  appointmentUserId:null,
+
+
+
   // 当前大夫的工作信息
   theDoctor:[
     // {
@@ -109,6 +58,24 @@ const getters={
 
 };
 const mutations={
+  //设置预约日期
+  setAppointmentDate(state,{appointmentDate}){
+    state.appointmentDate=appointmentDate;
+
+  },
+  //设置预约上午还是下午
+  setAppointmentTime(state,{appointmentTime}){
+    state.appointmentTime=appointmentTime;
+
+  },
+  //设置要预约的大夫的id
+  setAppointmentDoctorId(state,{appointmentDoctorId}){
+    state.appointmentDoctorId=appointmentDoctorId;
+  },
+  //设置要挂号的用户的id
+  setAppointmentUserId(state,{appointmentUserId}){
+    state.appointmentUserId=appointmentUserId;
+  },
   //显示科室排班表
   setShowTrue(state){
     state.isShow=true;
@@ -229,13 +196,21 @@ const actions={
   selectUserId({commit},params){
     fetch('http://127.0.0.1:3000/appointment/selectUserId?&card_id='+params.card_id).then(function(response) {
       response.json().then(function(res){
-        console.log(res);
+        let userId=res[0].id;
+        //将挂号用户的id放到state中去
+        commit('setAppointmentUserId',{appointmentUserId:userId})
+
       }).catch(function (err) {
         throw err;
       })
     }).catch(function (err) {
       throw err;
     })
+  },
+
+  //进行挂号
+  registration(){
+
   }
 
 }
