@@ -18,6 +18,8 @@
             <td v-b-modal.punchCard v-for="item in theDoctor" class="pointer">{{item.pm}}</td>
         </tr>
       </table>
+
+
     </div>
 
     <b-modal id="punchCard" ref="modal" @ok="handleOk" @shown="clearName" hide-header hide-footer size="lg">
@@ -26,26 +28,26 @@
           <!--这个是600px的容器-->
           <div class="modal-center-box block-center ">
             <!--这个是520px的容器-->
+
             <div class="head clear text-md m-t-xxl">
               <h5 class="pull-left  font-normal">请输入您的个人信息</h5><span class="pull-right pointer" @click="close">X</span>
             </div>
             <div class="puch-card-info m-t-lg m-b-lg ">
                 <div class="info-box clear p-b-md">
-                  <span class="pull-left text-s">姓名</span><input type="text" class="pull-left">
+                  <span class="pull-left text-s">姓名</span><input type="text" class="pull-left" v-model="name">
                 </div>
                 <div class="info-box clear p-b-md">
-                  <span class="pull-left text-s">身份证号</span><input type="text" class="pull-left">
+                  <span class="pull-left text-s">身份证号</span><input type="text" class="pull-left" v-model="card_id">
                 </div>
                 <div class="info-box clear p-b-md">
-                  <span class="pull-left text-s">手机号</span><input type="text" class="pull-left">
+                  <span class="pull-left text-s">性别</span><input type="text" class="pull-left" v-model="gender">
                 </div>
                 <div class="info-box clear p-b-md">
-                  <span class="pull-left text-s">验证码</span><input type="text" class="pull-left">
+                  <span class="pull-left text-s">年龄</span><input type="text" class="pull-left" v-model="age">
                 </div>
             </div>
 
-
-            <b-btn class="pull-left concel-button">取消</b-btn><b-btn class="pull-left m-l-md submit-button m-r">提交</b-btn>
+            <b-btn class="pull-left concel-button">取消</b-btn><b-btn class="pull-left m-l-md submit-button m-r" @click="submit">提交</b-btn>
           </div>
         </div>
       </form>
@@ -55,6 +57,14 @@
 
 <script>
 export default {
+  data(){
+    return {
+      name:'',
+      card_id:null,
+      gender:'',
+      age:''
+    }
+  },
   computed:{
     doctors(){
       return this.$store.state.studyPages.doctors;
@@ -75,7 +85,10 @@ export default {
   },
   methods: {
     clearName () {
-      this.name = ''
+      this.name = '';
+      this.card_id=null;
+      this.age='';
+      this.gender='';
     },
     handleOk (evt) {
       // Prevent modal from closing
@@ -86,18 +99,37 @@ export default {
         this.handleSubmit()
       }
     },
-    handleSubmit () {
-      this.names.push(this.name)
-      this.clearName()
-      this.$refs.modal.hide()
-    },
     close(){
       this.$refs.modal.hide()
 
     },
     goBack(){
       this.$router.go(-1);
+    },
+    submit(){
+      let thisThis=this;
+      this.$store.dispatch('addUser',{
+        name:this.name,
+        card_id:this.card_id,
+        age:this.age,
+        gender:this.gender
+      });
+
+      setTimeout(function () {
+        thisThis.$store.dispatch('selectUserId',{
+          card_id:thisThis.card_id
+        })
+      },1000);
+      //这里遗留了一个问题，怎么用dispatch的then()
+
+
+
+
+//      thisThis.close();
+
     }
+
+
   },
 
   created(){
