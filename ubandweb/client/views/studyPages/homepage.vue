@@ -2,7 +2,7 @@
 <template lang="html">
   <div class="center-bar block-center">
     <h1>科室排班表</h1>
-    <div class="course-info m-t-lg">
+    <div class="course-info m-t-lg" v-if="isShow">
       <table>
         <tr class="date">
           <td></td>
@@ -68,6 +68,9 @@ export default {
     },
     illnessId(){
       return this.$route.params.illnessId;
+    },
+    isShow(){
+      return this.$store.state.studyPages.isShow;
     }
   },
   methods: {
@@ -98,6 +101,9 @@ export default {
   },
 
   created(){
+    //进来之后先将科室排班表隐藏
+    this.$store.commit('setShowFalse');
+
     //动态获取当前的大夫列表
     if(this.departmentId){
       //如果是按照科室查询的

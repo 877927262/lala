@@ -2,6 +2,9 @@
 import 'whatwg-fetch';
 
 const state={
+  //控制是否显示排班表
+  isShow:false,
+
   //大夫的所有信息
   doctors:[{
     name:'张大夫',
@@ -106,6 +109,15 @@ const getters={
 
 };
 const mutations={
+  //显示科室排班表
+  setShowTrue(state){
+    state.isShow=true;
+  },
+  //隐藏科室排班表
+  setShowFalse(state){
+    state.isShow=false;
+  },
+
   setAllDepartment(state,{hospitalDepartmentList}){
     state.hospitalDepartmentList=hospitalDepartmentList;
   },
