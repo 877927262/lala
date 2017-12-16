@@ -12,10 +12,6 @@ import MyCourse from '../views/studyPages/mycourse'
 //将课程主页引入
 import Homepage from '../views/studyPages/homepage'
 //将学习任务引入
-import StudyTask from '../views/studyPages/studyTask'
-//将任务详情页面引入
-import TaskDetails from '../views/studyPages/taskDetails'
-//将进行中引入进来
 import underway from '../views/studyPages/underway'
 //将已结束引进来
 import over from '../views/studyPages/over'
@@ -30,7 +26,6 @@ export default new Router({
       component: Home
     },
     {
-      //学习页面
       path: '/studyPage',
       redirect:'/studyPage/course',
       component: StudyPage,

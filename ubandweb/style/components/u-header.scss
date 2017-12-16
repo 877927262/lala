@@ -1,11 +1,6 @@
 @import "../variables";
-/**
-    @author: yiliang
-    @date: 2017-09-13
-**/
-
-
 .u-header{
+  background: orange;
     width: 100%;
     display: block;
     height: 80px;
@@ -16,48 +11,16 @@
     z-index: 105;
     transition: all 218ms;
 
-    &.notTop{
-        opacity: 1;
-        background: #fff;
-        .u-nav{
-            .nav-link{
-                color: $u-black;
-            }
-        }
-        border-bottom: 1px solid #dfdfdf;
-    }
-    .logo {
-        padding-top: 22px;
-        display: inline-block;
-        img{
-            width: 160px;
-            height: 30px;
-        }
-    }
 
     .login-btn{
+        width: 200px;
+
         float: right;
         margin-top: 18px;
         a{
           color: #fff;
         }
-    }
 
-    .u-nav{
-        display: inline-flex;
-        margin-left: 20px;
-        .nav-link{
-            padding: 0px 0px 0.3rem 0px;
-            font-size: 15px;
-            color: white;
-            &.active{
-                border-bottom: #ff4060 solid 2px;
-            }
-        }
-        .nav-item{
-            text-align: center;
-            margin-left: 50px;
-        }
     }
 
 }
