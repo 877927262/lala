@@ -4,8 +4,8 @@
     <div class="center-bar block-center">
       <h2>请选择您要挂的号</h2>
       <b-nav class="border-bottom">
-        <b-nav-item to="underway" replace>按科室挂号</b-nav-item>
-        <b-nav-item to="over" replace>按疾病挂号</b-nav-item>
+        <b-nav-item to="departmentList" replace>按科室挂号</b-nav-item>
+        <b-nav-item to="illnessList" replace>按疾病挂号</b-nav-item>
       </b-nav>
 
       <router-view></router-view>
