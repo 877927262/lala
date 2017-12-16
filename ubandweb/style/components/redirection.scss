@@ -1,0 +1,47 @@
+@import "../variables";
+@import "../utilities";
+
+.redirection {
+    height: 100%;
+  
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 0 0 0;
+  
+      .content-container {
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 150px 250px;
+        border-radius: 4px;
+  
+        .content-img {
+          width: 113px;
+          height: 140px;
+        }
+  
+        .content-info {
+          margin: 20px 0 0 40px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+  
+          .content-text {
+            font-size: 20px;
+          }
+          .content-button {
+            margin: 40px 0 0 0;
+            width: 120px;
+            height: 38px;
+          }
+        }
+      }
+    }
+  }
+  
+

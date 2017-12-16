@@ -1,1 +1,94 @@
 @import "../variables";
+.home-cover {
+  width: 100%;
+  height: 500px;
+  background-image: url('../../static/home/uband-cover-img2.jpg');
+  background-position: center top;
+  background-size: cover;
+  .cover-body {
+    width: 100%;
+    height: 100%;
+    background-color: #4a4a4a;
+    opacity: 0.25;
+    z-index: -1;
+  }
+  .cover-desc {
+    color: #fff;
+    z-index: 0;
+    position: absolute;
+    top: 210px;
+    width: 100%;
+  }
+}
+
+.home-adv-text {
+  height: 244px;
+}
+
+.u-course-show {
+  height: 420px;
+  .u-course-group {
+    background-color: #F9F7F2;
+    .group-content{
+        height: 120px;
+        width: $u-content-width;
+        margin: 0 auto;
+        line-height: 100px;
+        .group-title{
+          font-size: 32px;
+          display: inline-block;
+        }
+        .group-nav{
+          display: inline-flex;
+          padding-left: 100px;
+          .nav-link{
+            color: #4A4A4A;
+          }
+        }
+    }    
+  }
+
+  .course-list{
+    ul{
+      &.top-ul{
+        padding-top: 25px;
+        display: flex;
+      }
+    }
+    width: $u-content-width;
+    height: 482px;
+    padding-top: 10px;
+    margin: 0 auto;
+    .course-item{
+      margin-right: 40px; 
+      width:240px;
+      height: 250px;
+      .course-item-title{
+        font-size: 20px;
+      }
+      .course-item-img{
+        width: 240px;
+        height: 135px;
+      }
+      .course-item-desc{
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.uband-teacher{
+  height: 618px;
+  width: 100%;
+  .uband-teacher-content{
+    width: $u-content-width;
+    height: 588px;
+    padding-top: 70px;
+    margin: 0 auto;
+    .teacher-header{
+      width: 90px;
+      display: block;
+      border-radius: 50%;
+    }
+  }
+}
