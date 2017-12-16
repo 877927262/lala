@@ -21,7 +21,7 @@ const messages = {
     },
     menu: {
       course: '主页',
-      blog: '友班博客',
+      blog: '博客',
       aboutus: '关于我们'
     }
   }
