@@ -5,16 +5,16 @@ import Router from 'vue-router'
 import Home from '../views/home'
 //将学习页面引入
 import StudyPage from '../views/studyPages/studyPage'
-//将课程页面引入
-import Course from '../views/studyPages/course'
-// 将我的课程页面引入
-import MyCourse from '../views/studyPages/mycourse'
-//将课程主页引入
+//将主要板块引入
+import Main from '../views/studyPages/course'
+// 将详情页面引入
+import Detail from '../views/studyPages/mycourse'
+//将主页引入
 import Homepage from '../views/studyPages/homepage'
-//将学习任务引入
-import underway from '../views/studyPages/underway'
-//将已结束引进来
-import over from '../views/studyPages/over'
+//将科室列表引入
+import DepartmentList from '../views/studyPages/underway'
+//将病症列表引入
+import IllnessList from '../views/studyPages/over'
 
 Vue.use(Router);
 
@@ -27,23 +27,23 @@ export default new Router({
     },
     {
       path: '/studyPage',
-      redirect:'/studyPage/course',
+      redirect:'/studyPage/main',
       component: StudyPage,
       children:[{
-        path: 'course',
-        component: Course,
-        redirect:'course/underway',
+        path: 'main',
+        component: Main,
+        redirect:'main/departmentList',
         children:[{
-          path:'underway',
-          component:underway
+          path:'departmentList',
+          component:DepartmentList
         },{
-            path:'over',
-            component:over
+            path:'illnessList',
+            component:IllnessList
         }]
       },{
         path: 'department/:departmentId',
         redirect:'department/:departmentId/homepage',
-        component: MyCourse,
+        component: Detail,
         children:[{
           path:'homepage',
           component:Homepage
@@ -51,7 +51,7 @@ export default new Router({
       },{
         path: 'illness/:illnessId',
         redirect:'illness/:illnessId/homepage',
-        component: MyCourse,
+        component: Detail,
         children:[{
           path:'homepage',
           component:Homepage
