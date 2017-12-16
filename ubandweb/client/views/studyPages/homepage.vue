@@ -131,14 +131,22 @@ export default {
         card_id:this.card_id,
         age:this.age,
         gender:this.gender
-      });
-      //新增一个用户之后立马查询它的id
-      setTimeout(function () {
+      }).then(function () {
+        //新增一个用户之后立马查询它的id
         thisThis.$store.dispatch('selectUserId',{
           card_id:thisThis.card_id
+        }).then(function () {
+          //挂号
+          let appointmentDate=thisThis.$store.state.studyPages.appointmentDate;
+          let appointmentTime=thisThis.$store.state.studyPages.appointmentTime;
+          let appointmentDoctorId=thisThis.$store.state.studyPages.appointmentDoctorId;
+          let appointmentUserId=thisThis.$store.state.studyPages.appointmentUserId;
+
+          thisThis.$store.dispatch('registration',{appointmentDate,appointmentTime,appointmentDoctorId,appointmentUserId}).then(function () {
+            thisThis.$store.dispatch('getCurrentDoctorWorkList',{doctorId:thisThis.$store.state.studyPages.appointmentDoctorId})
+          })
         })
-      },500);
-      //这里遗留了一个问题，怎么用dispatch的then()
+      });
 
       thisThis.close();
 

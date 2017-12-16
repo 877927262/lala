@@ -173,45 +173,70 @@ const actions={
 
   //新增一条用户信息
   addUser({commit},params){
-    let datas={
-      name:params.name,
-      card_id:+params.card_id,
-      age:params.age,
-      gender:params.gender
-    };
-    fetch('http://127.0.0.1:3000/appointment/addUser', {
-      method: "POST",
-      body: JSON.stringify(datas),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    }).then(function(response) {
-
-    }).catch(function (err) {
-      throw err;
+    return new Promise((resolve,reject)=>{
+      let datas={
+        name:params.name,
+        card_id:+params.card_id,
+        age:params.age,
+        gender:params.gender
+      };
+      fetch('http://127.0.0.1:3000/appointment/addUser', {
+        method: "POST",
+        body: JSON.stringify(datas),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(function(response) {
+          resolve();
+      }).catch(function (err) {
+        throw err;
+      })
     })
+
   },
 
   //查询新增用户的id
   selectUserId({commit},params){
-    fetch('http://127.0.0.1:3000/appointment/selectUserId?&card_id='+params.card_id).then(function(response) {
-      response.json().then(function(res){
-        let userId=res[0].id;
-        //将挂号用户的id放到state中去
-        commit('setAppointmentUserId',{appointmentUserId:userId})
-
+    return new Promise((resolve,reject)=>{
+      fetch('http://127.0.0.1:3000/appointment/selectUserId?&card_id='+params.card_id).then(function(response) {
+        response.json().then(function(res){
+          let userId=res[0].id;
+          //将挂号用户的id放到state中去
+          commit('setAppointmentUserId',{appointmentUserId:userId})
+          resolve();
+        }).catch(function (err) {
+          throw err;
+        })
       }).catch(function (err) {
         throw err;
       })
-    }).catch(function (err) {
-      throw err;
     })
+
   },
 
   //进行挂号
-  registration(){
+    registration({commit},params){
+      return new Promise((resolve,reject)=>{
+        let datas={
+          appointmentDate:params.appointmentDate,
+          appointmentTime:params.appointmentTime,
+          appointmentDoctorId:params.appointmentDoctorId,
+          appointmentUserId:params.appointmentUserId
+        };
+        fetch('http://127.0.0.1:3000/appointment/registration', {
+          method: "POST",
+          body: JSON.stringify(datas),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }).then(function(response) {
+          resolve();
+        }).catch(function (err) {
+          throw err;
+        })
+      })
 
-  }
+    }
 
 }
 
