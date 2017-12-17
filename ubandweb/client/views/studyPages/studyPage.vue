@@ -1,6 +1,4 @@
-<!--这个组件是学习页面的主干-->
-<!--它包含了页面头部和内容区-->
-<!--内容区使用路由显示不同的内容-->
+
 <template lang="html">
   <div>
     <component is="StudyHeader"></component>
