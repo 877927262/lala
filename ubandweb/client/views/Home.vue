@@ -2,8 +2,7 @@
   <div class="page">
     <u-header></u-header>
     <div class="centers-bar block-center">
-      <div></div>
-      <div></div>
+      <img src="../../static/timg.jpg" alt="" class="block-center">
     </div>
 
   </div>
