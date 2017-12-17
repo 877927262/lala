@@ -71,5 +71,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "../../../style/components/studyPages/myCourse";
+  @import "../../../style/components/studyPages/detail";
 </style>

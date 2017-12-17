@@ -6,15 +6,15 @@ import Home from '../views/home'
 //将学习页面引入
 import StudyPage from '../views/studyPages/studyPage'
 //将主要板块引入
-import Main from '../views/studyPages/course'
+import Main from '../views/studyPages/main'
 // 将详情页面引入
-import Detail from '../views/studyPages/mycourse'
+import Detail from '../views/studyPages/detail'
 //将主页引入
 import Homepage from '../views/studyPages/homepage'
 //将科室列表引入
-import DepartmentList from '../views/studyPages/underway'
+import DepartmentList from '../views/studyPages/departmentList'
 //将病症列表引入
-import IllnessList from '../views/studyPages/over'
+import IllnessList from '../views/studyPages/illnessList'
 
 Vue.use(Router);
 

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import StudyHeader from './studyHeader'
+import StudyHeader from './header'
 export default {
   components:{
     StudyHeader

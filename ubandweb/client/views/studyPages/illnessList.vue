@@ -3,7 +3,7 @@
     <!-- 一行排列三门课程 -->
     <b-row>
 
-      <b-col  md="6"	lg="4"	xl="4" v-for="(item,index) in hospitalDepartmentList" :key="item.id">
+      <b-col  md="6"	lg="4"	xl="4" v-for="(item,index) in illnessList" :key="item.id">
           <div class="course-box pointer m-t-lg" @click="linkTo(item.id)">
             <!--<router-link :to="/studyPage/myCourse">-->
               <div class="course-image">
@@ -29,8 +29,8 @@ export default {
     }
   },
   computed:{
-    hospitalDepartmentList(){
-      return this.$store.state.studyPages.hospitalDepartmentList;
+    illnessList(){
+      return this.$store.state.studyPages.illnessList;
     }
 
   },
@@ -40,18 +40,17 @@ export default {
       // return moment(date).format('YYYY/MM/DD')
     },
     //路由跳转
-    linkTo(departmentId){
-      this.$router.push("/studyPage/department/"+departmentId)
-//      this.$router.push("/studyPage/myCourse/")
+    linkTo(illnessId){
+      this.$router.push("/studyPage/illness/"+illnessId)
     }
   },
   created(){
-    this.$store.dispatch('getAllDepartment');
+    this.$store.dispatch('getAllIllness');
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  @import "../../../style/components/studyPages/underway";
+  @import "../../../style/components/studyPages/departmentList";
 
 </style>

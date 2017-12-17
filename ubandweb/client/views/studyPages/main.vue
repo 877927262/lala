@@ -48,6 +48,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "../../../style/components/studyPages/course";
+  @import "../../../style/components/studyPages/main";
 
 </style>
