@@ -9,12 +9,19 @@
     top: 0;
     z-index: 105;
     transition: all 218ms;
-    background: orange;
+    background: #64c0f0;
+
+    .title{
+      line-height: 80px;
+      color: #ffffff;
+    }
 
     .login-btn{
         float: right;
         margin-top: 18px;
-        a{
+        width:200px;
+
+      a{
           color: #fff;
         }
     }
