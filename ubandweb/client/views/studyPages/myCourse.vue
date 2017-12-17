@@ -41,7 +41,15 @@ export default {
       this.currentIndex = index;
 
       //设置要预约的大夫的id
-      this.$store.commit('setAppointmentDoctorId',{appointmentDoctorId:item.id});
+      if(item.id){
+        this.$store.commit('setAppointmentDoctorId',{appointmentDoctorId:item.id});
+      }
+      else if(item.doctor){
+        this.$store.commit('setAppointmentDoctorId',{appointmentDoctorId:item.doctor});
+      }
+      else {
+        console.log('呵呵，又一个bug自己找去吧')
+      }
 
 
       //theDoctor当前大夫的工作信息
