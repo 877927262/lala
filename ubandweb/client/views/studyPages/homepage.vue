@@ -11,11 +11,11 @@
         </tr>
         <tr>
           <td>上午</td>
-          <td v-b-modal.punchCard v-for="item in theDoctor" class="pointer" @click="getAppointmentAmInfo(item)">{{item.am}}</td>
+          <td v-b-modal.punchCard v-for="item in theDoctor" class="pointer" @click="getAppointmentAmInfo(item)">剩余{{item.am}}</td>
         </tr>
         <tr>
           <td>下午</td>
-            <td v-b-modal.punchCard v-for="item in theDoctor" class="pointer" @click="getAppointmentPmInfo(item)">{{item.pm}}</td>
+            <td v-b-modal.punchCard v-for="item in theDoctor" class="pointer" @click="getAppointmentPmInfo(item)">剩余{{item.pm}}</td>
         </tr>
       </table>
 

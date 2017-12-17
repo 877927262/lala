@@ -1,7 +1,10 @@
 <template>
   <div class="page">
     <u-header></u-header>
-    
+    <div class="centers-bar block-center">
+      <div></div>
+      <div></div>
+    </div>
 
   </div>
 </template>
