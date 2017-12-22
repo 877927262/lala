@@ -55,6 +55,9 @@
 </template>
 
 <script>
+  import Vue from 'vue';
+  import Toasted from 'vue-toasted';
+  Vue.use(Toasted);
 export default {
   data(){
     return {
@@ -143,7 +146,14 @@ export default {
 
           thisThis.$store.dispatch('registration',{appointmentDate,appointmentTime,appointmentDoctorId,appointmentUserId}).then(function () {
             thisThis.$store.dispatch('getCurrentDoctorWorkList',{doctorId:thisThis.$store.state.studyPages.appointmentDoctorId}).then(function () {
-              alert('成功');
+//              alert('成功');
+//              this.$toasted.show('挂号成功');
+              Vue.toasted.show('挂号成功',{
+                theme: "outline",
+                position: "top-center",
+                duration : 3000,
+                className:'toastedCorrectStyle'
+              });
             })
           })
         })

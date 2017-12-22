@@ -42,7 +42,15 @@ a, a:hover, a:visited {
   &.btn-secondary{
     border-color: $u-red;
   }
-  &:hover{    
+  &:hover{
     cursor: pointer;
   }
+}
+//弹出提示框正确的样式
+.toastedCorrectStyle {
+  background-color: #fc4363 !important;
+  border:none !important;
+  color:#ffffff !important;
+  height: 50px !important;
+  font-size: 20px !important;
 }
