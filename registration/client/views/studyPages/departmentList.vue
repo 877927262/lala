@@ -42,7 +42,6 @@ export default {
     //路由跳转
     linkTo(departmentId){
       this.$router.push("/studyPage/department/"+departmentId)
-//      this.$router.push("/studyPage/myCourse/")
     }
   },
   created(){

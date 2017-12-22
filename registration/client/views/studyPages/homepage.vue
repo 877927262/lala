@@ -1,4 +1,3 @@
-<!--课程主页组件-->
 <template lang="html">
   <div class="center-bar block-center">
     <h1>科室排班表</h1>
@@ -143,7 +142,9 @@ export default {
           let appointmentUserId=thisThis.$store.state.studyPages.appointmentUserId;
 
           thisThis.$store.dispatch('registration',{appointmentDate,appointmentTime,appointmentDoctorId,appointmentUserId}).then(function () {
-            thisThis.$store.dispatch('getCurrentDoctorWorkList',{doctorId:thisThis.$store.state.studyPages.appointmentDoctorId})
+            thisThis.$store.dispatch('getCurrentDoctorWorkList',{doctorId:thisThis.$store.state.studyPages.appointmentDoctorId}).then(function () {
+              alert('成功');
+            })
           })
         })
       });
