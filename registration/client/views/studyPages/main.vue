@@ -1,4 +1,3 @@
-<!--这个组件，显示所有的课程-->
 <template lang="html">
   <div>
     <div class="center-bar block-center">
