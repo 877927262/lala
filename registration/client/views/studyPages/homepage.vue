@@ -5,7 +5,6 @@
       <table>
         <tr class="date">
           <td></td>
-          <!-- {{works}} -->
           <td v-for="item in theDoctor">{{item.date}}</td>
         </tr>
         <tr>
@@ -17,8 +16,6 @@
             <td v-b-modal.punchCard v-for="item in theDoctor" class="pointer" @click="getAppointmentPmInfo(item)">剩余{{item.pm}}</td>
         </tr>
       </table>
-
-
     </div>
 
     <b-modal id="punchCard" ref="modal" @ok="handleOk" @shown="clearName" hide-header hide-footer size="lg">
@@ -27,7 +24,6 @@
           <!--这个是600px的容器-->
           <div class="modal-center-box block-center ">
             <!--这个是520px的容器-->
-
             <div class="head clear text-md m-t-xxl">
               <h5 class="pull-left  font-normal">请输入您的个人信息</h5><span class="pull-right pointer" @click="close">X</span>
             </div>
@@ -36,16 +32,20 @@
                   <span class="pull-left text-s">姓名</span><input type="text" class="pull-left" v-model="name">
                 </div>
                 <div class="info-box clear p-b-md">
-                  <span class="pull-left text-s">身份证号</span><input type="text" class="pull-left" v-model="card_id">
+                  <span class="pull-left text-s">身份证号</span><input type="number" class="pull-left" v-model="card_id">
                 </div>
                 <div class="info-box clear p-b-md">
-                  <span class="pull-left text-s">性别</span><input type="text" class="pull-left" v-model="gender">
+                  <!--<span class="pull-left text-s">性别</span><input type="text" class="pull-left" v-model="gender">-->
+                  <span class="pull-left text-s">性别</span>
+                  <input type="radio" id="male" class="pull-left radio " v-model="gender" value="男">
+                  <label for="male" class="pull-left m-r">男</label>
+                  <input type="radio" id="female" class="pull-left radio" v-model="gender" value="女">
+                  <label for="female" class="pull-left m-r">女</label>
                 </div>
                 <div class="info-box clear p-b-md">
-                  <span class="pull-left text-s">年龄</span><input type="text" class="pull-left" v-model="age">
+                  <span class="pull-left text-s">年龄</span><input type="number" class="pull-left" v-model="age">
                 </div>
             </div>
-
             <b-btn class="pull-left concel-button">取消</b-btn><b-btn class="pull-left m-l-md submit-button m-r" @click="submit">提交</b-btn>
           </div>
         </div>

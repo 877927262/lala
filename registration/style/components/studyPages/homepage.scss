@@ -52,6 +52,13 @@
             background: #ecf1f2;
             border:none;
             border-radius: 5px;
+            &.radio{
+              width: 30px;
+            }
+          }
+          label{
+            height: 30px;
+            line-height: 30px;
           }
         }
       }
