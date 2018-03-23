@@ -48,7 +48,9 @@ const state={
     //   id:'007',
     //   name:'张三疯'
     // }
-  ]
+  ],
+  // 挂号之后返回的挂号信息
+  result: ' '
 
 
 
@@ -106,9 +108,25 @@ const mutations={
   setCurrentDoctorWorkList(state,{theDoctor}){
     state.theDoctor=theDoctor;
 
+  },
+  setAppointment(state,{result}){
+    state.result=result;
   }
 };
 const actions={
+  // 查询用户的挂号信息
+  getAppointment({commit},params){
+    fetch('http://127.0.0.1:3000/appointment/getUserAppointment?&userId='+params.appointmentUserId).then(function(response) {
+     response.json().then(function(res){
+        commit('setAppointment',{result:res[0]})
+
+     }).catch(function (err) {
+       throw err;
+     })
+    }).catch(function (err) {
+      throw err;
+    })
+  },
   getAllDepartment({commit}){
     fetch('http://127.0.0.1:3000/appointment/getAllDepartment').then(function(response) {
      response.json().then(function(res){
@@ -230,7 +248,7 @@ const actions={
             "Content-Type": "application/json"
           }
         }).then(function(response) {
-          resolve();
+          resolve(response);
         }).catch(function (err) {
           throw err;
         })

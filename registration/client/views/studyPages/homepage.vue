@@ -16,6 +16,8 @@
             <td v-b-modal.punchCard v-for="item in theDoctor" class="pointer" @click="getAppointmentPmInfo(item)">剩余{{item.pm}}</td>
         </tr>
       </table>
+      <span v-if="result!=' '">您成功挂到了{{result.date}}日{{result.date}}的号</span>
+      <!-- {{result}} -->
     </div>
 
     <b-modal id="punchCard" ref="modal" @ok="handleOk" @shown="clearName" hide-header hide-footer size="lg">
@@ -83,6 +85,9 @@ export default {
     },
     isShow(){
       return this.$store.state.studyPages.isShow;
+    },
+    result(){
+      return this.$store.state.studyPages.result;
     }
   },
   methods: {
@@ -145,6 +150,7 @@ export default {
           let appointmentUserId=thisThis.$store.state.studyPages.appointmentUserId;
 
           thisThis.$store.dispatch('registration',{appointmentDate,appointmentTime,appointmentDoctorId,appointmentUserId}).then(function () {
+
             thisThis.$store.dispatch('getCurrentDoctorWorkList',{doctorId:thisThis.$store.state.studyPages.appointmentDoctorId}).then(function () {
 //              alert('成功');
 //              this.$toasted.show('挂号成功');
@@ -154,6 +160,8 @@ export default {
                 duration : 3000,
                 className:'toastedCorrectStyle'
               });
+              thisThis.$store.dispatch('getAppointment',{appointmentUserId}).then(function () {
+              })
             })
           })
         })
