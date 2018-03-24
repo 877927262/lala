@@ -16,8 +16,8 @@
             <td v-b-modal.punchCard v-for="item in theDoctor" class="pointer" @click="getAppointmentPmInfo(item)">剩余{{item.pm}}</td>
         </tr>
       </table>
-      <span v-if="result!=' '">您成功挂到了{{result.date}}日{{result.date}}的号</span>
-      <!-- {{result}} -->
+      <span v-if="result!=' '">{{result.user}}您好，您成功挂到了{{result.date}}日{{result.time}}{{result.doctor}}大夫的号</span>
+      <!-- {{theDoctor}} -->
     </div>
 
     <b-modal id="punchCard" ref="modal" @ok="handleOk" @shown="clearName" hide-header hide-footer size="lg">
@@ -75,7 +75,7 @@ export default {
     },
     theDoctor(){
       return this.$store.state.studyPages.theDoctor;
-
+      
     },
     departmentId(){
       return this.$route.params.departmentId;
