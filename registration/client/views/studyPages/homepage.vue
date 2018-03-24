@@ -17,7 +17,7 @@
         </tr>
       </table>
       <span v-if="result!=' '">{{result.user}}您好，您成功挂到了{{result.date}}日{{result.time}}{{result.doctor}}大夫的号</span>
-      <!-- {{theDoctor}} -->
+      <!-- {{result}} -->
     </div>
 
     <b-modal id="punchCard" ref="modal" @ok="handleOk" @shown="clearName" hide-header hide-footer size="lg">
