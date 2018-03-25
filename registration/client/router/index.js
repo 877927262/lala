@@ -15,6 +15,7 @@ import Homepage from '../views/studyPages/homepage'
 import DepartmentList from '../views/studyPages/departmentList'
 //将病症列表引入
 import IllnessList from '../views/studyPages/illnessList'
+import getUserInfo from '../views/studyPages/getUserInfo'
 
 Vue.use(Router);
 
@@ -24,6 +25,10 @@ export default new Router({
     {
       path: '/',
       component: Home
+    },
+    {
+      path: '/getUserInfo',
+      component: getUserInfo
     },
     {
       path: '/studyPage',

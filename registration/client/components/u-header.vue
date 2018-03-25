@@ -4,7 +4,7 @@
     <b-button to="/studyPage" class="login-btn u-btn u-btn-primary">
       我要挂号
     </b-button>
-    <b-button to="/studyPage" class="login-btn u-btn u-btn-primary m-r-xl">
+    <b-button to="/getUserInfo" class="login-btn u-btn u-btn-primary m-r-xl">
       我要查询
     </b-button>
   </div>
