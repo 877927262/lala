@@ -50,7 +50,7 @@ const state={
     // }
   ],
   // 挂号之后返回的挂号信息
-  result: '呵呵'
+  result: ''
 
 
 

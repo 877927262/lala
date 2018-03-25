@@ -16,8 +16,8 @@
             <td v-b-modal.punchCard v-for="item in theDoctor" class="pointer" @click="getAppointmentPmInfo(item)">剩余{{item.pm}}</td>
         </tr>
       </table>
-      <span v-if="result!=' '">{{result.user}}您好，您成功挂到了{{result.date}}日{{result.time}}{{result.doctor}}大夫的号</span>
-      <!-- {{result}} -->
+      <span v-if="result">{{result.user}}您好，您成功挂到了{{result.date}}日{{result.time}}{{result.doctor}}大夫的号</span>
+      <!-- {{theDoctor}} -->
     </div>
 
     <b-modal id="punchCard" ref="modal" @ok="handleOk" @shown="clearName" hide-header hide-footer size="lg">
@@ -73,9 +73,16 @@ export default {
     doctors(){
       return this.$store.state.studyPages.doctors;
     },
+    // 返回一个对象数组，并且根据日期进行排序
     theDoctor(){
-      return this.$store.state.studyPages.theDoctor;
-      
+      let _this=this;
+      let sortObj = this.$store.state.studyPages.theDoctor;
+      for (let key in sortObj){
+        sortObj[key].number = new Date(sortObj[key].date).getTime()/1000;
+      }
+      return sortObj.sort(function(a,b){
+        return a.number - b.number
+      })
     },
     departmentId(){
       return this.$route.params.departmentId;
@@ -91,6 +98,12 @@ export default {
     }
   },
   methods: {
+    // 对对象数组按照属性排序
+    sortBy(field){
+      return function(a,b){
+        return a[field]-b[field]
+      }
+    },
     //设置日期和上午
     getAppointmentAmInfo(item){
       let date=item.date;
