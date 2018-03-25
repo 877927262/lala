@@ -19,6 +19,9 @@
 
 <script>
   import 'whatwg-fetch';
+  import Vue from 'vue';
+  import Toasted from 'vue-toasted';
+  Vue.use(Toasted);
 export default {
   data(){
     return {
@@ -35,15 +38,25 @@ export default {
       let _this = this;
       fetch('http://127.0.0.1:3000/appointment/getUserAppointmentForUserId?&userId='+userId).then(function(response) {
         response.json().then(function(res){
-          _this.result = res[0];
+          if (res.length == 0){
+            // alert("您还没有挂号，请先去挂号")
+            Vue.toasted.show('您还没有挂号，请先去挂号',{
+              theme: "outline",
+              position: "top-center",
+              duration : 3000,
+              className:'toastedErrStyle'
+            });
+          }else{
+            _this.result = res[0];
+            setTimeout(function () {
+              _this.result = '';
+            },5000)
+          }
         }).catch(function (err) {
-          // throw err;
-          console.log("hehe");
+          throw err;
         })
       }).catch(function (err) {
-        // throw err;
-        console.log("hehe");
-
+        throw err;
       })
     }
   }
